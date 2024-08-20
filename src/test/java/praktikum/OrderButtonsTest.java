@@ -38,7 +38,7 @@ public class OrderButtonsTest {
     }
 
     @Parameterized.Parameters
-    public static Object[][] OrderButtonsCheck() {
+    public static Object[][] orderButtonsCheck() {
         return new Object[][] {
                 {"Иннокентий", "Васильев", "Москва",  "+79990008877"} ,
                 {"Анна Мария", "Вас", "улица Новомосковская, д. 5", "89997770000"}
@@ -47,7 +47,7 @@ public class OrderButtonsTest {
 
     @Test
     public void clickOrderButtonHeader() {
-        MainPage mainPage = new MainPage(driver, "", "", "", "");
+        MainPage mainPage = new MainPage(driver, "", "");
 
         WhoScooterForPage whoScooterForPage = new WhoScooterForPage(driver);
         mainPage.clickOrderButtonHeader();
@@ -64,12 +64,13 @@ public class OrderButtonsTest {
                 .clickScooterColor()
                 .enterCommentaryRentAboutPage()
                 .clickOrderButton()
-                .orderFormationWindow();
+                .orderFormationWindow()
+                .checkOrderPlacement();
     }
 
     @Test
     public void clickOrderButtonBody() {
-        MainPage mainPage = new MainPage(driver,"","","","");
+        MainPage mainPage = new MainPage(driver,"","");
         WhoScooterForPage whoScooterForPage = new WhoScooterForPage(driver);
         mainPage.clickOrderButtonBody();
         whoScooterForPage.enterNameField(nameFieldUser)
@@ -85,11 +86,12 @@ public class OrderButtonsTest {
                 .clickScooterColor()
                 .enterCommentaryRentAboutPage()
                 .clickOrderButton()
-                .orderFormationWindow();
+                .orderFormationWindow()
+                .checkOrderPlacement();
     }
 
     @After
-    public void teardown() {
+    public void tearDown() {
         // Закрой браузер
         driver.quit();
     }

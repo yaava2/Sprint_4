@@ -9,12 +9,12 @@ import org.openqa.selenium.WebDriver;
 import praktikum.pages.MainPage;
 
 @RunWith(Parameterized.class)
-public class FaqTests {
+public class FaqTest {
     WebDriver driver;
     private final String textQuestion;
     private final String textAnswer;
 
-    public FaqTests(String textQuestion, String textAnswer) {
+    public FaqTest(String textQuestion, String textAnswer) {
         this.textQuestion = textQuestion;
         this.textAnswer = textAnswer;
     }
